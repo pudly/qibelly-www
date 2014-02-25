@@ -1,0 +1,137 @@
+/* ============================================================
+
+  Content
+
+============================================================ */
+
+.page-footer {
+  clear: all;
+  margin-top: $vspacing*4;
+  background: $colour-black;
+  min-height: 400px;
+  color: darken(#fff, 30%);
+  
+  position: relative;
+  
+  &:before {
+    content: '';
+    width: 220px;
+    height: 246px;
+    position: absolute;
+    top: -110px;
+    left: 50%;
+    margin-left: -110px;
+    
+    background: url(img/buddha.png) no-repeat;
+  }
+
+  h2 {
+    font-size: 2.2em;
+    line-height: 1em;
+  }
+}
+
+/* footer widgets */
+
+/* location */
+
+.page-footer .widget-location {
+  padding-top: 120px;
+  
+  address, .contact li a {
+    background-color: transparent;
+  }
+
+  address {
+    font-size: 1.2em;
+    text-align: center;
+    color: #fff !important;
+
+    span {
+      color: #fff;
+    }
+  }
+
+  .contact li a {
+    background-image: none !important;
+    color: $colour-red;
+    text-align: center;
+    text-indent: 0;
+    font-size: 1.2em;
+    padding: .15em 0;
+  
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+/* sitemap */
+
+.widget-sitemap {
+  nav {
+    margin-bottom: $vspacing;
+    background: #111;
+    
+    h2 {
+      margin: 0;
+      padding: .35em .35em .35em 1.55em;
+      background: url(img/ico_pulltab.png) no-repeat 16px 50%;
+      background-size: 22px auto;
+      font-size: 2em;
+    }
+
+    ul {
+      display: none;
+    }
+  }
+  
+}
+
+/* twitter */
+
+.widget-twitter {
+  .tweets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      overflow: hidden;
+      
+      a {
+        text-decoration: none;
+        color: darken(#fff, 50%);
+        line-height: 1.1em;
+        
+        p {
+          margin-left: 60px;
+          
+          em {
+            color: $colour-red;
+          }
+        }
+        
+        img {
+          float: left;
+          margin-right: 10px; 
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: $break-medium) {
+  .page-footer .widget {
+    width: 33%;
+  }
+}
+
+
+@media (-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) { 
+  .page-footer:before {
+    background-image: url(img/buddha_@2x.png);
+    background-size: 100% auto;
+  } 
+}

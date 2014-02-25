@@ -1,0 +1,87 @@
+/* ============================================================
+
+  Primary Navigation
+
+============================================================ */
+
+.main-navigation {
+  display: block;
+  float: left;
+
+  ul {
+    list-style: none;
+    padding: 0 $vspacing;
+    margin: 0;
+    overflow: hidden;
+    
+    li {
+      float: left;
+      padding: 0 $vspacing / 1.5;
+      line-height: 84px;
+      
+      a {
+        font-size: 1.1em;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 200;
+        text-transform: uppercase;
+        float: left;
+        
+        &:hover {
+          color: #fff !important;
+          -webkit-transform: scale(1.1);
+          text-shadow: none !important;
+          text-shadow: 0 5px 3px #000;
+        }
+      }
+    }
+    
+    &:hover li a {
+      color: transparent;
+      text-shadow: 0 0 3px #fff, 0 0 10px #fff;
+    }
+  } 
+}
+
+/* Small menu */
+.menu-toggle {
+	display: none;
+	cursor: pointer;
+}
+
+@media screen and (min-width: $break-medium){
+  .main-navigation ul li a {
+    font-size: 1.5em;
+  }
+}
+
+
+@media screen and (max-width: $break-small) {
+  .main-navigation {
+    float: right;
+    margin: $vspacing 0 0 $vspacing;
+  }
+  
+  .menu-toggle {
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    text-indent: 100%;
+    background: url(img/ico_pulltab.png) no-repeat 50% 50%;
+  }
+  
+  @media (-webkit-min-device-pixel-ratio: 2), 
+  (min-resolution: 192dpi) { 
+    .menu-toggle {
+      background: url(img/ico_pulltab_@2x.png) no-repeat 50% 50%;
+      background-size: 36px auto;
+    }
+  }
+
+  .main-navigation ul {
+    display: none;
+  }
+}

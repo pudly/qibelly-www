@@ -1,0 +1,384 @@
+/* ============================================================
+
+  Reusable Widgets
+
+============================================================ */
+
+.widget {
+  padding: $vspacing 0;
+  
+  .detail {
+    background: #fff;
+    padding: $vspacing/1.5;
+  }
+}
+
+@media only screen and (min-width: $break-mini) {
+  .widget {
+    float: left;
+    padding-left: $vspacing/2;
+    padding-right: $vspacing/2;
+  }
+}
+
+@media only screen and (min-width: $break-medium) {
+
+}
+
+/* CLASSES Widget
+----------------------------------------------- */
+.widget-classes {
+  .day {
+    h3 {
+      color: #fff;
+      font-size: 1.1em;
+      line-height: 1;
+      font-weight: 300;
+      background: $colour-black;
+      display: inline-block;
+      padding: $vspacing/3 $vspacing/2;
+      text-transform: uppercase;
+      margin-bottom: $gutter;
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 $vspacing/2 0;
+      
+      li {
+        margin-bottom: $gutter;
+        
+        a {
+          display: block;
+          
+          background: $colour-white;
+          padding: $vspacing/2;
+          
+          font-weight: 400;
+          text-decoration: none;
+          color: $colour-red;
+          font-size: 1.2em;
+          line-height: 1em;
+          
+          position: relative;
+          
+          em {
+            font-style: normal;
+            font-weight: 200;
+            color: $colour-gray;
+            display: block;
+            font-size: .9em;
+          }
+          
+          &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 8px;
+            height: 100%;
+            background: url(img/ico_hero-arrow.png) no-repeat 0 50%;
+            background-size: 8px auto;
+            right: $vspacing/2;
+            
+            -webkit-transition: all .2s ease-in-out;
+            -moz-transition: all .2s ease-in-out;
+            -o-transition: all .2s ease-in-out;
+            transition: all .2s ease-in-out;                
+          }
+          
+          &:hover {
+            background: $colour-black;
+            z-index: 1;
+            padding: $vspacing/2 $vspacing/1.5;
+            
+            em {
+              color: lighten($colour-gray, 20%)
+            }
+            
+            &:after {
+              right: $vspacing/1.5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* VIDEOS Widget
+----------------------------------------------- */
+.widget-videos {
+  .thumbs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    li {
+      margin-bottom: $vspacing/2;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      a {
+        text-decoration: none;
+        display: block;
+        
+        h3 {
+          color: $colour-black;
+          font-size: 1.1em;
+          font-weight: 400;
+          line-height: 1em;
+          background: #fff;
+          padding: $vspacing/1.5;
+          
+          em {
+            font-style: normal;
+            display: block;
+            font-weight: 200;
+            color: $colour-gray;
+          }
+        }
+        
+        &:hover {
+          h3 {
+            color: $colour-red;
+          }
+          
+          .thumb-video img {
+            transform: scale(1.2);
+          }
+        }
+        
+        * {
+          -webkit-transition: all .2s ease-in-out;
+          -moz-transition: all .2s ease-in-out;
+          -o-transition: all .2s ease-in-out;
+          transition: all .2s ease-in-out;     
+        }
+      }
+    }
+    
+    .thumb-video {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      
+      img {
+        display: block;
+      }
+      
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 44px;
+        height: 44px;
+        margin: -22px 0 0 -22px;
+        background: url(img/ico_video.png) no-repeat;
+        background-size: 100%;
+      }
+    }
+    
+
+  }
+}
+
+/* LOCATION Widget
+----------------------------------------------- */
+.widget-location {
+  
+  /* map area */
+  .map {
+    display: block;
+    position: relative;
+    
+    img {
+      display: block;
+    }
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -48px;
+      margin-left: -15px;
+      
+      width: 30px;
+      height: 48px;
+      background: url(img/ico_pin.png) no-repeat;
+      background-size: 100%;
+    }
+  }
+  
+  address {
+    padding: $vspacing/1.5;
+    background: #fff;
+    line-height: 1em;
+    margin-bottom: $gutter;
+    
+    h3 {
+      font-size: 1.2em;
+      font-weight: 400;
+      margin-bottom: .25em;
+    }
+    
+    span {
+      display: block;
+      color: $colour-gray;
+    }
+  }
+  
+  /* contacts list */
+  .contact {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    
+    li {
+      margin-bottom: $gutter;
+      
+      a {
+        display: block;
+        padding: $vspacing/1.5;
+        
+        color: $colour-black;
+        text-decoration: none;
+        text-indent: $vspacing*1.25;
+        line-height: 1em;
+        
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-position: $vspacing/1.5 50%;
+        
+        &.phone {
+          background-image: url(img/ico_phone.png);
+          background-size: 16px 16px;
+        }
+        
+        &.email {
+          background-image: url(img/ico_email.png);
+          background-size: 18px 12px;
+        }
+        
+        &:hover {
+          color: $colour-red;
+        }
+      }
+    }
+  }
+}
+
+/* SOCIAL MEDIA ICONS Widget
+----------------------------------------------- */
+.widget-social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  
+  li {
+    float: left;
+    width: 33.333333%;
+    padding: 0 1px;
+    height: ($grid-third - ($vspacing/2))/3;
+    
+    &:first-child {
+      padding-left: 0;
+    }
+    
+    &:last-child {
+      padding-right: 0;
+    }
+    
+    a {
+      display: block;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      height: 100%;
+      text-indent: 100%;
+      overflow: hidden;
+      
+      &.facebook {
+        background-color: $colour-facebook;
+        background-image: url(img/ico_facebook.png);
+        background-size: 20px 36px;
+        
+        &:hover {
+          background-color: darken($colour-facebook, 20%);
+        }
+      }
+
+      &.twitter {
+        background-color: $colour-twitter;
+        background-image: url(img/ico_twitter.png);
+        background-size: 38px 31px;
+        
+        &:hover {
+          background-color: darken($colour-twitter, 20%);
+        }
+      }
+
+      &.youtube {
+        background-color: $colour-youtube;
+        background-image: url(img/ico_youtube.png);
+        background-size: 44px 44px;
+        
+        &:hover {
+          background-color: darken($colour-youtube, 20%);
+        }
+      }
+    }
+  }
+}
+
+/* Retina images
+----------------------------------------------- */
+@media (-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) { 
+  
+  /* VIDEOS - video play icon */
+  .widget-videos .thumbs li .thumb-video:after {
+    background-image: url(img/ico_video_@2x.png);
+  }
+  
+  /* LOCATION - map pin */
+  .widget-location .map:after {
+    background-image: url(img/ico_pin_@2x.png);
+  }
+  
+  /* CONTACT - icons */
+  .widget-location .contact li a.phone { background-image: url(img/ico_phone_@2x.png); }
+  .widget-location .contact li a.email { background-image: url(img/ico_email_@2x.png); }
+  
+  /* SOCIAL - icons */
+  .widget-social li a.facebook { background-image: url(img/ico_facebook_@2x.png); }
+  .widget-social li a.twitter { background-image: url(img/ico_twitter_@2x.png); }
+  .widget-social li a.youtube { background-image: url(img/ico_youtube_@2x.png); }
+}
+
+
+/* Home page grid breakpoints
+----------------------------------------------- */
+@media only screen and (min-width: $break-mini) {
+  .home {
+    .widget-classes   { width: 50% }
+    .widget-videos    { width: 50% }
+    .widget-location  { width: 50% }
+    .widget-blog      { width: 100% }
+  }
+}
+@media only screen and (min-width: $break-medium) {
+  .home {
+    .widget-classes   { width: 33.33333% }
+    .widget-videos    { width: 33.33333% }
+    .widget-location  { width: 33.33333% }
+    .widget-blog      { width: 66.66666% }
+  }
+
+  .widget-classes   { width: 33.33333% }
+  .widget-classlist { width: 66.66666% }
+}

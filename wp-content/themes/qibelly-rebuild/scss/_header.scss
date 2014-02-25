@@ -1,0 +1,188 @@
+/* ============================================================
+
+  Site Header
+
+============================================================ */
+
+$logo-height: 84px;
+
+.site-header {
+  
+  .site-branding {
+    max-width: $grid-total;
+    margin: $vspacing;
+    height: $logo-height;
+  }
+  
+  .main-navigation {
+    
+  }
+}
+
+.home .site-header {
+  position: absolute;
+  width: 100%;
+}
+
+/* logo */
+.site-title {
+  margin: 0;
+  padding: 0;
+  display: block;
+  overflow: hidden;
+  text-indent: 200%;
+  white-space: nowrap;
+  width: 110px;
+  height: $logo-height;
+  background: url(img/logo.png) no-repeat;
+  background-size: 100%;
+  float: left;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;      
+}
+
+/* search */
+.search-form {
+  float: right;
+  line-height: $logo-height;
+  padding-top: $vspacing;
+  width: 44px;
+  position: relative;
+  
+  button {
+    display: none;
+  }
+  
+  input {
+    width: 44px;
+    display: block;
+    padding: 0;
+
+    background: rgba(255,255,255,.25);
+    border: 0;
+    border-radius: 44px;
+    height: 44px;
+    outline: 0;
+    box-shadow: 0 0 0 5px rgba(255,255,255,.25);
+    float: right;
+    text-indent: $vspacing / 2;
+    
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;    
+    
+    color: transparent !important;
+    
+    &::-webkit-input-placeholder {
+       color: transparent;
+    }
+    
+    &:-moz-placeholder { /* Firefox 18- */
+       color: transparent;
+    }
+    
+    &::-moz-placeholder {  /* Firefox 19+ */
+       color: transparent;  
+    }
+    
+    &:-ms-input-placeholder {  
+       color: transparent; 
+    }
+    
+    &:focus {
+      width: 100%;
+      color: #fff !important;
+    }
+  }
+  
+  label {
+    overflow: hidden;
+    text-indent: 100%;
+    width: 44px;
+    height: 44px;
+    display: block;
+    background: url(img/ico_search.png) no-repeat;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+  }
+}
+
+
+/* break points */
+@media only screen and (min-width: $break-mini) { 
+  .search-form {
+    width: 60%;
+  }
+}
+
+@media only screen and (min-width: $break-small) {
+  .search-form {
+    width: 23%;
+  }
+}
+
+@media only screen and (min-width: $break-small + 100) {
+  .search-form {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: $break-medium) { 
+  .site-header {
+    height: $logo-height;
+
+    .site-branding {
+      padding: ($vspacing * 2) 0;
+      margin: 0 auto;
+    }
+    
+    &.sticky {
+      position: fixed !important;
+      width: 100%;
+      background: rgba(34,32,32,.9);
+      height: $logo-height !important;
+      z-index: 100;
+      
+      .site-branding {
+        padding: $vspacing/2 0;
+      }
+      
+      .site-title {
+        width: 110px * .75;
+        height: $logo-height * .75;
+        background-size: 100% auto;
+      }
+      
+      .main-navigation ul li,
+      .search-form {
+        line-height: $logo-height * .75;
+      }
+      
+      .search-form {
+        padding-top: $vspacing/2;
+      }
+    }
+  }
+  
+  .search-form {
+    width: 300px;
+  }
+}
+
+
+@media (-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) { 
+  .site-title {
+    background: url(img/logo_@2x.png) no-repeat;
+    background-size: 100%;
+  }
+  
+  .search-form label {
+    background: url(img/ico_search_@2x.png) no-repeat;
+    background-size: 100%;
+  }
+}
