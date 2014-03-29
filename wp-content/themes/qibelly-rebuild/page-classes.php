@@ -7,7 +7,19 @@ Template Name: Classes
 <?php get_header(); ?>
 
 <?php 
-  $args = array( 'post_type'=> 'class', 'category_name'=>'most-popular', 'posts_per_page' => '5');
+
+//fix the plugin activation
+//get the title
+//times aren't populating properly
+
+$options = get_option('plugin_options');
+$options = array_filter($options);
+//echo 'stuff<pre>';
+//print_r($options);
+//echo '</pre>';
+?>
+ <?php
+  $args = array( 'post_type'=> 'class');//, 'category_name'=>'most-popular', 'posts_per_page' => '5');
   
   if($_GET['cat'] != 1)
   {
@@ -20,84 +32,84 @@ Template Name: Classes
   $post = get_post($id);
   //echo '<h2>'.get_the_title($id).'</h2>';
   //echo '<p>'.$post->post_content.'</p>';
-?>
-    <main class="site-content" role="main">
+  
+  
+  ?>
+
+<main class="site-content" role="main">
       <section class="widget widget-classes">
         <h2>Classes</h2>
         
-        <nav class="day">
-          <h3>Tuesdays</h3>
-          <ul>
-            <li><a href="">
-              Privates &amp; Treatments
-              <em>7:30AM - 5:00PM</em>
-            </a></li>
-            <li><a href="">
-              Tai Chi &amp; Qi-Gong
-              <em>6:00PM - 7:00PM</em>
-            </a></li>
-            <li><a href="">
-              Happy Hour <small>(Meditation/Reiki)</small>
-              <em>7:15PM - 8:15PM</em>
-            </a></li>
+              
+<?php
+  
+  
+//  echo "<ul>";
+$lastdayofweek = "";
+
+foreach($options as $key => &$option)
+{
+
+              
+    if($option != null)
+    {
+        $is_new_day = false;
+        $dayofweek =  strstr($key, "_", true);
+        $num = substr ( $key, strrpos ( $key , "_" )+1 , 2) ;
+        $correspondingtime = $options[$dayofweek . '_time_'.$num];
+        
+        //echo "lastdayofweek ". $lastdayofweek ."<br/>";
+        if($lastdayofweek != $dayofweek)
+        {
+//            echo "<h1>" . $dayofweek . "s</h1>";
+            $is_new_day = true;
+        }
+          
+        if($is_new_day)
+        {
+            echo "
+        <nav class='day'>
+          <h3>$dayofweek</h3>
+          <ul>         
+";
+        }
+       // echo "<li><a href='#" . $option ."'> " . $key . " " . $option . " TIME: " . $correspondingtime. " </a></li>";
+        echo "
+           <li><a href='#$option'>
+              $option
+              <em>$correspondingtime</em>
+            </a></li>  "; 
+        
+        unset($options[$dayofweek . '_time_'.$num]);
+        $lastdayofweek = $dayofweek;
+//        
+//        echo "<br/>unset$dayofweek . '_time_'.$num<pre>";
+//        print_r($options);
+//        echo '</pre>';
+    }
+}
+
+if($is_new_day)
+        {
+            ?>
+              
           </ul>
         </nav>
-
-        <nav class="day">
-          <h3>Wednesdays</h3>
-          <ul>
-            <li><a href="">
-              Privates &amp; Treatments
-              <em>7:30AM - 8:00PM</em>
-            </a></li>
-          </ul>
-        </nav>
-
-        <nav class="day">
-          <h3>Thursdays</h3>
-          <ul>
-            <li><a href="">
-              Privates &amp; Treatments
-              <em>7:30AM - 12:00PM</em>
-            </a></li>
-            <li><a href="">
-              Tai Chi &amp; Qi-Gong
-              <em>12:00PM - 1:00PM</em>
-            </a></li>
-            <li><a href="">
-              Push Hands
-              <em>1:00PM - 2:00PM</em>
-            </a></li>
-            <li><a href="">
-              Privates &amp; Treatments
-              <em>2:30PM - 6:30PM</em>
-            </a></li>
-          </ul>
-        </nav>
-
-        <nav class="day">
-          <h3>Saturdays</h3>
-          <ul>
-            <li><a href="">
-              Privates &amp; Treatments
-              <em>7:30AM - 11:00AM</em>
-            </a></li>
-            <li><a href="">
-              Tai Chi &amp; Qi-Gong
-              <em>11:00AM - 12:00PM</em>
-            </a></li>
-            <li><a href="">
-              Privates &amp; Treatments
-              <em>1:00PM - 8:00PM</em>
-            </a></li>
-          </ul>
-        </nav>       
+              <?php
+        }
+?>
+        
+        
+         
       </section><!-- .widget-classes -->
+      
+     
       <section class="widget widget-classlist">
         <ul>
 <?php 
         query_posts( $args ); 
         if ( have_posts() ) : while ( have_posts() ) : the_post(); 
+        
         $post_categories = wp_get_post_categories( get_the_ID() );
         
         $cat_slug_string = "";
